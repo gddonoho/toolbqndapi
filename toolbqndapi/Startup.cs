@@ -30,7 +30,7 @@ namespace toolbqndapi
                 options.AddDefaultPolicy(
                     builder =>
                     {
-                        builder.WithOrigins("https://toolbqnd.com", "http://localhost:3000");
+                        builder.WithOrigins("https://toolbqnd.com", "http://localhost:3000", "https://toolbqnd.herokuapp.com");
                     });
             });
             services.AddControllers();
