@@ -49,12 +49,10 @@ namespace toolbqndapi.Controllers
                 using (NpgsqlCommand comm = new NpgsqlCommand(command, connection))
                 {
                     var dr = comm.ExecuteReader();
-                    var setlist = new SortedList();
                     while (dr.Read())
                     {
-                        setlist.Add(dr[0], dr[1].ToString().Replace("&", "and"));
+                        speck.setlist.Add(new KeyValuePair<int, string>((int)dr[0], dr[1].ToString().Replace("&", "and")));
                     }
-                    speck.setlist = setlist;
                 }
             }
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
@@ -64,12 +62,10 @@ namespace toolbqndapi.Controllers
                 using (NpgsqlCommand comm = new NpgsqlCommand(command, connection))
                 {
                     var dr = comm.ExecuteReader();
-                    var mp3list = new SortedList();
                     while (dr.Read())
                     {
-                        mp3list.Add(dr[0], dr[1].ToString().Replace(" ", "%20"));
+                        speck.mp3links.Add(new KeyValuePair<int, string>((int)dr[0], dr[1].ToString().Replace(" ", "%20")));
                     }
-                    speck.mp3links = mp3list;
                 }
             }
             speck.needsMap = (speck.mp3links.Count != 1) && (speck.mp3links.Count != speck.setlist.Count) ? true : false;
