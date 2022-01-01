@@ -13,8 +13,8 @@ namespace toolbqndapi
         public string Country { get; set; }
         public decimal Latitude { get; set; }
         public decimal Longitude { get; set; }
-        public List<KeyValuePair<int, string>> setlist { get; set; }
-        public List<KeyValuePair<int, string>> mp3links { get; set; }
+        public List<string> setlist { get; set; }
+        public List<string> mp3links { get; set; }
         public bool needsMap { get; set; }
         public List<Map> maps { get; set; }
     }

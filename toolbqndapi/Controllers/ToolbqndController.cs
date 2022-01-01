@@ -42,7 +42,7 @@ namespace toolbqndapi.Controllers
                     }
                 }
             }
-            speck.setlist = new List<KeyValuePair<int, string>>();
+            speck.setlist = new List<string>();
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();
@@ -52,11 +52,11 @@ namespace toolbqndapi.Controllers
                     var dr = comm.ExecuteReader();
                     while (dr.Read())
                     {
-                        speck.setlist.Add(new KeyValuePair<int, string>((int)dr[0], dr[1].ToString().Replace("&", "and")));
+                        speck.setlist.Add(dr[1].ToString().Replace("&", "and"));
                     }
                 }
             }
-            speck.mp3links = new List<KeyValuePair<int, string>>();
+            speck.mp3links = new List<string>();
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();
@@ -66,7 +66,7 @@ namespace toolbqndapi.Controllers
                     var dr = comm.ExecuteReader();
                     while (dr.Read())
                     {
-                        speck.mp3links.Add(new KeyValuePair<int, string>((int)dr[0], dr[1].ToString().Replace(" ", "%20")));
+                        speck.mp3links.Add(dr[1].ToString().Replace(" ", "%20"));
                     }
                 }
             }
@@ -83,7 +83,7 @@ namespace toolbqndapi.Controllers
                         var dr = comm.ExecuteReader();
                         while (dr.Read())
                         {
-                            speck.maps.Add(new Map() { SetlistItem = Int32.Parse(dr[0].ToString()), Mp3linkItem = Int32.Parse(dr[1].ToString()) });
+                            speck.maps.Add(new Map() { SetlistIndex = Int32.Parse(dr[0].ToString()) - 1, Mp3Index = Int32.Parse(dr[1].ToString()) - 1 });
                         }
                     }
                 }

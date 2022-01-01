@@ -3,7 +3,7 @@ namespace toolbqndapi
 {
     public class Map
     {
-        public object SetlistItem { get; set; }
-        public object Mp3linkItem { get; set; }
+        public int SetlistIndex { get; set; }
+        public int Mp3Index { get; set; }
     }
 }
