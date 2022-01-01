@@ -30,7 +30,7 @@ namespace toolbqndapi
                 options.AddDefaultPolicy(
                     builder =>
                     {
-                        builder.WithOrigins("https://toolbqnd.com", "http://localhost:3000", "https://toolbqnd.surge.sh");
+                        builder.WithOrigins("https://toolbqnd.com", "http://localhost:1234", "https://toolbqnd.surge.sh");
                     });
             });
             services.AddControllers();
