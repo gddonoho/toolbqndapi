@@ -42,6 +42,7 @@ namespace toolbqndapi.Controllers
                     }
                 }
             }
+            speck.setlist = new List<KeyValuePair<int, string>>();
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();
@@ -55,6 +56,7 @@ namespace toolbqndapi.Controllers
                     }
                 }
             }
+            speck.mp3links = new List<KeyValuePair<int, string>>();
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();
